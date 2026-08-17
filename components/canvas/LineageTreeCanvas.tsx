@@ -22,6 +22,7 @@ export default function LineageTreeCanvas() {
     let raf = 0
     let tw = 0
     let th = 0
+    let visible = true
 
     const size = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -157,12 +158,25 @@ export default function LineageTreeCanvas() {
 
     const loop = (t: number) => {
       draw(t)
-      raf = requestAnimationFrame(loop)
+      if (visible) raf = requestAnimationFrame(loop)
     }
+
+    // Pause the rAF loop while the section is scrolled off-screen.
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !visible) {
+        visible = true
+        raf = requestAnimationFrame(loop)
+      } else {
+        visible = entry.isIntersecting
+      }
+    })
+    io.observe(canvas)
+
     raf = requestAnimationFrame(loop)
 
     return () => {
       cancelAnimationFrame(raf)
+      io.disconnect()
       window.removeEventListener('resize', size)
       parent?.removeEventListener('tree-progress', onProgress)
     }

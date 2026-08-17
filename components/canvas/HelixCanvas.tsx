@@ -13,6 +13,7 @@ export default function HelixCanvas() {
     let raf = 0
     let w = 0, h = 0
     let mouseX = 0.5
+    let visible = true
 
     const size = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -67,12 +68,24 @@ export default function HelixCanvas() {
         sphere(x1, y, Math.min(4.6, Math.max(0.9, 2.6 + z * 1.7)), '#f3fffb', '#59e6c2', '#0a3f34', 0.35 + (z + 1) * 0.3)
         sphere(x2, y, Math.min(4.6, Math.max(0.9, 2.6 - z * 1.7)), '#ffe9d4', '#e0a45c', '#4a2a10', 0.35 + (1 - z) * 0.28)
       }
-      raf = requestAnimationFrame(draw)
+      if (visible) raf = requestAnimationFrame(draw)
     }
+
+    // Pause the rAF loop while the canvas is scrolled off-screen.
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !visible) {
+        visible = true
+        raf = requestAnimationFrame(draw)
+      } else {
+        visible = entry.isIntersecting
+      }
+    })
+    io.observe(canvas)
 
     raf = requestAnimationFrame(draw)
     return () => {
       cancelAnimationFrame(raf)
+      io.disconnect()
       window.removeEventListener('resize', size)
       window.removeEventListener('mousemove', onMove)
     }
