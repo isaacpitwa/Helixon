@@ -1,11 +1,11 @@
-# HELIXON Biosciences — Task 01 Submission
+# HELIXON Biosciences
 
 A premium, animation-driven biotechnology landing page built for the Creative Frontend Developer role.
 
-## 🚀 Live Demo
+## Live Demo
 [https://helixon-five.vercel.app/](https://helixon-five.vercel.app/)
 
-## 🛠 Tech Stack
+## Tech Stack
 - **Framework:** Next.js 15 (App Router) + TypeScript
 - **Styling:** Tailwind CSS v3 with a design-token theme (`lib/tokens.ts`)
 - **Motion:** Framer Motion (scroll reveals, magnetic buttons, count-up stats)
@@ -13,7 +13,7 @@ A premium, animation-driven biotechnology landing page built for the Creative Fr
 - **Interactive visuals:** HTML5 Canvas (hero helix, molecular graph, lineage tree)
 - **Typography:** Syne (display) · Instrument Sans (body) · IBM Plex Mono (data)
 
-## ⚙️ Setup
+##  Setup
 Requires Node 18.18+ and [pnpm](https://pnpm.io/).
 
 ```bash
@@ -23,7 +23,7 @@ pnpm build    # production build
 pnpm start    # serve the production build
 ```
 
-## 🎨 Design & Animation Approach
+## Design & Animation Approach
 
 ### The Concept: "The Bioluminal Lab"
 The visual identity balances the precision of computational biology with the approachability of modern clinical science. The page is built around an alternating rhythm: dark, cinematic bands (deep petrol with teal bioluminescence) alternate with light, rounded "sheets" (paper white with periwinkle and copper accents). This duality mirrors the company's nature — deep, complex data presented through a clean, modern interface.
@@ -40,7 +40,7 @@ Next.js (App Router) provides the component architecture, routing, and first-cla
 - **Accessibility:** Full support for `prefers-reduced-motion` — the helix rotation stops, Lenis smooth scroll is disabled, the sequence-scramble is skipped, and CSS transitions collapse to near-zero duration. Interactive elements use semantic landmarks and ARIA labels; decorative canvases are `aria-hidden`.
 - **Motion architecture:** Reveals and micro-interactions run through Framer Motion; the three canvases each own an independent, viewport-gated rAF loop, avoiding layout thrashing during scroll.
 
-## 📁 Project Structure
+## Project Structure
 ```
 app/            App Router entry, global styles
 components/
