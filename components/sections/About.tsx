@@ -43,7 +43,7 @@ export default function About() {
           <div className="space-y-6">
             <FadeIn>
               <figure className="overflow-hidden rounded-[26px] shadow-2xl shadow-bg/20">
-                <img src="https://picsum.photos/seed/helixon-laboratory/640/800" alt="Research scientist inside a Helixon genomics laboratory" loading="lazy" className="w-full aspect-[4/5] object-cover saturate-[.9] contrast-[1.05] animate-kenburns" />
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80" alt="Research scientist inside a Helixon genomics laboratory" loading="lazy" className="w-full aspect-[4/5] object-cover saturate-[.9] contrast-[1.05] animate-kenburns" />
               </figure>
               <figcaption className="flex justify-between px-1 pt-3 text-bg/40 font-mono text-[10px] tracking-[0.16em] uppercase">
                 <span>FIG. 00 — GENOMICS CORE, BASEL</span><span>35mm / f1.8</span>

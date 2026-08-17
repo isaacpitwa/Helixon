@@ -5,10 +5,10 @@ import StackCard from '@/components/ui/StackCard'
 
 export default function Technology() {
   const cards = [
-    { index: '01', title: 'HelixEdit™ — Base Editing Suite', desc: 'Programmable base and prime editors with tissue-tuned specificity. sgRNA libraries screened against 19 cell-type epigenomes before a single construct is built.', tags: ['CRISPR', 'Prime Editing', 'Off-Target 0.03%'], img: 'https://picsum.photos/seed/crispr-editing-lab/400/300' },
-    { index: '02', title: 'FoldMind™ — Protein Structure AI', desc: 'Generative structure models proposing de-novo binders and enzymes, scored by physics-informed neural potentials and validated in 72-hour expression cycles.', tags: ['De-novo Design', 'Neural Potentials', '72h Loop'], img: 'https://picsum.photos/seed/protein-folding-model/400/300' },
-    { index: '03', title: 'Vectra™ — Delivery Engineering', desc: 'Capsid and lipid-nanoparticle libraries evolved by directed selection. Tropism-programmed vectors reaching CNS, retina and muscle with single-dose durability.', tags: ['AAV', 'LNP', 'CNS Tropism'], img: 'https://picsum.photos/seed/viral-vector-design/400/300' },
-    { index: '04', title: 'OrganoCore™ — Human-Relevant Screening', desc: 'Patient-derived organoid panels across 14 disease indications replace animal models early, de-risking candidates before first-in-human studies.', tags: ['Organoids', '14 Indications', 'High-Content'], img: 'https://picsum.photos/seed/organoid-screening/400/300' },
+    { index: '01', title: 'HelixEdit™ — Base Editing Suite', desc: 'Programmable base and prime editors with tissue-tuned specificity. sgRNA libraries screened against 19 cell-type epigenomes before a single construct is built.', tags: ['CRISPR', 'Prime Editing', 'Off-Target 0.03%'], img: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80' },
+    { index: '02', title: 'FoldMind™ — Protein Structure AI', desc: 'Generative structure models proposing de-novo binders and enzymes, scored by physics-informed neural potentials and validated in 72-hour expression cycles.', tags: ['De-novo Design', 'Neural Potentials', '72h Loop'], img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
+    { index: '03', title: 'Vectra™ — Delivery Engineering', desc: 'Capsid and lipid-nanoparticle libraries evolved by directed selection. Tropism-programmed vectors reaching CNS, retina and muscle with single-dose durability.', tags: ['AAV', 'LNP', 'CNS Tropism'], img: 'https://images.unsplash.com/photo-1579165466949-3180a3d056d5?w=600&q=80' },
+    { index: '04', title: 'OrganoCore™ — Human-Relevant Screening', desc: 'Patient-derived organoid panels across 14 disease indications replace animal models early, de-risking candidates before first-in-human studies.', tags: ['Organoids', '14 Indications', 'High-Content'], img: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=80' },
   ]
 
   return (

@@ -11,6 +11,7 @@ export default function MolecularGraph() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')!
     let raf = 0, w = 0, h = 0
+    let visible = true
     const mouse = { x: -999, y: -999 }
     const pulses: { x: number; y: number; r: number }[] = []
     const LABELS = ['CRISPR', 'LNP', 'AAV9', 'mRNA', 'Cas12', 'sgRNA', 'PAM', 'Organoid', 'Kinase', 'Receptor', 'Vector', 'Plasmid', 'Fold', 'Assay', 'Seq', 'Capsid', 'Locus', 'Exon']
@@ -64,11 +65,24 @@ export default function MolecularGraph() {
         ctx.beginPath(); ctx.arc(n.x, n.y, hov ? 4 : 2.4, 0, 7); ctx.fill()
         if (hov) { ctx.fillStyle = 'rgba(11,18,32,.9)'; ctx.font = '10px "IBM Plex Mono", monospace'; ctx.fillText(n.l, n.x + 9, n.y + 3) }
       })
-      raf = requestAnimationFrame(draw)
+      if (visible) raf = requestAnimationFrame(draw)
     }
+
+    // Pause the rAF loop while the canvas is scrolled off-screen.
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !visible) {
+        visible = true
+        raf = requestAnimationFrame(draw)
+      } else {
+        visible = entry.isIntersecting
+      }
+    })
+    io.observe(canvas)
+
     raf = requestAnimationFrame(draw)
     return () => {
       cancelAnimationFrame(raf)
+      io.disconnect()
       window.removeEventListener('resize', size)
       canvas.removeEventListener('mousemove', onMove)
       canvas.removeEventListener('mouseleave', onLeave)
