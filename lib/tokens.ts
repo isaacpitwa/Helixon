@@ -19,9 +19,9 @@ export const colors = {
 } as const
 
 export const fonts = {
-  display: ['Syne', 'sans-serif'],
-  body: ['Instrument Sans', 'sans-serif'],
-  mono: ['IBM Plex Mono', 'monospace'],
+  display: ['var(--font-display)', 'Syne', 'sans-serif'],
+  body: ['var(--font-body)', 'Instrument Sans', 'sans-serif'],
+  mono: ['var(--font-mono)', 'IBM Plex Mono', 'monospace'],
 } as const
 
 export const easing = {

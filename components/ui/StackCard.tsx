@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { cn } from '@/lib/cn'
 
 interface StackCardProps {
@@ -27,8 +28,8 @@ export default function StackCard({ index, title, desc, tags, img, topOffset }: 
           ))}
         </div>
       </div>
-      <div className="overflow-hidden rounded-2xl self-start h-[150px]">
-        <img src={img} alt={title} loading="lazy" className="w-full h-full object-cover saturate-[.85] hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(.19,1,.22,1)]" />
+      <div className="relative overflow-hidden rounded-2xl self-start h-[150px]">
+        <Image src={img} alt={title} fill sizes="(max-width: 768px) 92vw, 150px" className="object-cover saturate-[.85] hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(.19,1,.22,1)]" />
       </div>
     </article>
   )
